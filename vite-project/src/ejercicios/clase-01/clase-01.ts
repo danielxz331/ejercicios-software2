@@ -49,7 +49,7 @@ console.log(p3);
 
 ///////////////-------------//////////////////
 
-interface Producto {
+export interface Producto {
     descripcion: string;
     precio: number;
 }
@@ -64,23 +64,26 @@ const computador: Producto = {
 
 const carrito: Producto[] = [celular, computador];
 const impuesto: number = 0.19;
+const propina: number = 3
 
 interface ImpuestosOption {
     impuesto: number;
     productos: Producto[];
+    propina: number;
 }
 
-function calcularImpuesto(options: ImpuestosOption): number[] {
+export function calcularImpuesto(options: ImpuestosOption): number[] {
     let total:number = 0;
     options.productos.forEach(({precio}) => {
         total += precio;
     });
-    return [total, total * options.impuesto];
+    return [total, total * options.impuesto, 3];
 }
 
 const options: ImpuestosOption = {
     impuesto,
-    productos: carrito
+    productos: carrito,
+    propina: propina
 }
 
 const resultadoCompra: number[] = calcularImpuesto(options);
@@ -89,4 +92,4 @@ console.log("Total: " + resultadoCompra[0]);
 console.log("Total impuestos" + resultadoCompra[1]);
 console.log("propina: " + resultadoCompra[2]);
 
-export {};
+export {}
