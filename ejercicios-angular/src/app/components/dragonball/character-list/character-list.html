@@ -1,13 +1,20 @@
-<h3> {{ listName() }} </h3>
+<h3>{{ listName() }}</h3>
 <ul>
-    @for(character of characters(); track character.id; let idx = $index){
-        <li>
-            <span>{{idx+1}}: {{ character.nombre }} -></span>
-            <span
-                [class.text-danger]="character.poder > 8000"
-                [class.text-info]="character.poder < 8000"
-                >{{ character.poder }}
-            </span>
-        </li>
+  @for(character of characters(); track character.id; let idx = $index){
+    @if(character.poder > 1000) {
+      <li>
+        <span>{{ idx + 1 }} - {{ character.nombre }}: </span>
+
+        <span
+          [class.text-danger]="character.poder > 8000"
+          [class.text-info]="character.poder <= 8000"
+        >{{ character.poder }}</span>
+      </li>
+    } @else {
+      <li>
+        <span>Personaje con poder bajo</span>
+      </li>
     }
+
+  }
 </ul>
