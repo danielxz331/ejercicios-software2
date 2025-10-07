@@ -1,8 +1,14 @@
-<div class="bg-slate-100 overflow-y-scroll w-screen h-screen antialiased text-slate-300 selection:bg-blue-600 selection:text-white">
-    <div class="flex flex-col relative w-screen">
+<div class="bg-slate-100 overflow-x-hidden min-h-screen antialiased text-slate-300 selection:bg-blue-600 selection:text-white">
+    <div class="flex flex-col relative">
         <gifs-side-menu></gifs-side-menu>
-    <div class="ml-[220px] px-4 flex-col flex-1 w-full h-full text-slate-800">  
-      <router-outlet/>
-    </div>
+        
+        <!-- Botón de menú móvil -->
+        <button class="md:hidden fixed top-4 left-4 z-30 p-2 bg-gray-900 text-white rounded-lg">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        
+        <div class="ml-0 md:ml-[200px] lg:ml-[220px] flex-col flex-1 max-w-full text-slate-800">  
+            <router-outlet/>
+        </div>
     </div>
 </div>
